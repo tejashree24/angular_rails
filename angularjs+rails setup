@@ -1,0 +1,103 @@
+1.rails new angular_rails
+2.cd angular_rails
+3.changes in gemfile: add given gem
+gem 'angular-rails-templates'
+4.bundle install
+5.changes in application.js :
+//require angular-rails-templates
+6.create new file in angular_rails as .bowerrc and changes in it :
+{
+	"directory" : "vendor/assets/bower_Components"
+}
+
+7.install angular
+bower install angular(if error comes then run 1.sudo chown -R $USER:$GROUP ~/.config
+						2.sudo bower install angular --allow-root)
+8.install angular-ui-router
+sudo bower install angular --allow-root
+9.application.js
+//= require jquery
+//= require jquery_ujs
+//= require angular
+//= require angular-rails-templates
+//= require angular-ui-router
+//= require turbolinks
+//= require_tree .
+
+(make sure angular must be above any other gem)
+10.make a file in app/assets/javascript/app.js:
+angular
+	.module('app',['ui.router','templates'])
+11.application_controller.rb
+def home 
+  render 'layouts/application'
+end
+
+12.routes.rb
+Rails.application.routes.draw do
+  root "application#home"
+end
+13. add changes in app.js
+angular
+	.module('app',['ui.router','templates'])
+	.config(['$stateProvider', '$urlProvider',
+		function($stateProvider,$urlProvider){
+			$stateProvider
+			.state('home',{
+				url: '/home',
+				templateUrl: 'main/_home.html',
+				controller: 'MainCtrl',
+			});
+			$urlRouterProvider.otherwise('home');
+		}])
+14.create new files:
+
+inside app/assets/javascript/main/
+1.  _home.html
+2.MainCtrl.js
+
+16.add changes in _.html 
+<h1>This is the Homepage</h1>
+<form>
+	<input type="text" ng-model="data.name">
+</form>
+
+{{data.name}}
+
+17.add changes in MainCtrl.js
+function MainCtrl() {
+
+}
+
+angular
+	.module('app')
+	.controller("MainCtrl",MainCtrl);
+
+15. add changes in application.html.erb: remove <=% yield %> from file.
+<body ng-app="app">
+<ui-view>
+</ui-view>
+</body>
+18. Successfully Running Angular js + Rails
+19.you can make another route in angular js as:
+
+angular
+	.module('app',['ui.router','templates'])
+	.config(['$stateProvider', '$urlRouterProvider',
+		function($stateProvider,$urlRouterProvider){
+			$stateProvider
+			.state('home',{
+				url: '/home',
+				templateUrl: 'main/_home.html',
+				controller: 'MainCtrl',
+			})
+			.state('about',{
+				url: '/about',
+				templateUrl: 'main/_about.html',
+				controller: 'MainCtrl',
+			});
+			$urlRouterProvider.otherwise('home');
+		}])
+
+20. http://localhost:3000/#!/about
+

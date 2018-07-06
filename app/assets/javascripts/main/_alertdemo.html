@@ -1,0 +1,23 @@
+<div ng-controller="AlertCtrl">
+  <script type="text/ng-template" id="alert.html">
+   
+  </script>
+
+  <div class="container">
+  		<div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+
+		<div uib-alert template-url="alert.html" style="background-color:#fa39c3;color:white">A happy alert!</div>
+		<button type="button" class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+  </div>
+</div>
+
+<!-- <button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button> -->

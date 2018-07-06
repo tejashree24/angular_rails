@@ -12,6 +12,17 @@ angular
 				url: '/about',
 				templateUrl: 'main/_about.html',
 				controller: 'MainCtrl',
+			})
+			.state('alertdemo',{
+				url: '/alertdemo',
+				templateUrl: 'main/_alertdemo.html',
+				controller: 'AlertCtrl',
+			})
+			.state('formdemo',{
+				url: '/formdemo',
+				templateUrl: 'main/_form_example.html',
+				controller: 'FormController',
 			});
+
 			$urlRouterProvider.otherwise('home');
 		}])

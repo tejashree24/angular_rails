@@ -1,0 +1,33 @@
+<h5>Form Demo</h3>
+<form name="myForm" ng-controller="FormController" class="my-form">
+	userType: <input name="input" ng-model="userType" required>
+	<span class="error" ng-show="myForm.input.$error.required">Required!</span>
+	<br>
+	<code>userType = {{userType}}</code><br>
+	<code>myFoem.input.$error = {{myForm.input.$error}}</code><br>
+	<code>myForm.input.$valid = {{myForm.input.$valid}}</code><br>
+	<code>myForm.$valid = {{myForm.$valid}}</code><br>
+	<code>myForm.$error.required = {{!!myForm.$error.required}}</code>
+</form>
+
+<h5>angular.copy</h3>
+<form class="simple-form">
+	<label>Name:<input type="text" ng-model="user.name"/></label><br/>
+	<label>Age:<input type="text" ng-model="user.age"/></label></br/>
+
+	Gender: <label><input type="radio" ng-model="user.gender" value="Male"/></label><br/>
+	<label><input type="radio" ng-model="user.gender" value="Female" /></label><br/>
+
+	<button ng-click="reset()">RESET</button>
+	<button ng-click="update(user)">SAVE</button>
+</form>
+
+<pre>form = {{user | json}}</pre>
+<pre>leader = {{leader | json}}</pre>
+
+<h5>angular.forEach</h5>
+
+<form>
+
+</form>
+

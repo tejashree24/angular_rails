@@ -1,0 +1,33 @@
+<div ng-controller="HeaderCtrl as head">
+	<h3>{{head.appTitle}}</h3>
+</div>
+
+<div ng-controller="ServiceDemo as service">
+	<button ng-click="getRequest()">Test Rest</button>
+	<div class="row">
+		<ul style="margin-left: 20px;" class="list-group">
+			<li class="list-group-item" ng-repeat="artist in service.artists" ng-click="service.selectArtist($index)">
+				{{artist.artistId + " " + artist.artistName}}
+			</li>
+		</ul>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="media">
+			<div class="media-left">
+		      	<a style="margin-left: 30px;" class="pr-3" href="#">
+		        	<img style="height: 50px; width:50px;" class="mr-3" ng-src="{{service.selectedArtist.image}}">
+		      	</a>
+		  	</div>
+	      	<div class="media-body">
+	        	<h5 class="mt-0">{{service.selectedArtist.artistName}}</h5>
+	        		<h6>{{service.selectedArtist.genre}}</h6>
+	        		<p style="height: 200px; width: 300px;">{{service.selectedArtist.description}}</p>
+	      	</div>
+		</div>
+	</div>
+</div>
+
+<div ng-controller="FooterCtrl as foot">
+	<h3>{{foot.appTitle}}</h3>
+</div>

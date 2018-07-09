@@ -22,7 +22,12 @@ angular
 				url: '/formdemo',
 				templateUrl: 'main/_form_example.html',
 				controller: 'FormController',
+			})
+			.state('servicedemo',{
+				url: '/servicedemo',
+				templateUrl:'main/_serviceDemo.html',
+				controller: 'ServiceDemo',
 			});
 
 			$urlRouterProvider.otherwise('home');
-		}])
+		}]);
